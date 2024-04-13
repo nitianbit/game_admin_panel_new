@@ -9,3 +9,11 @@
 .text-blue{
   color: #8296EE;
 }
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.font-weight-600{
+  font-weight: 600 !important;
+}
