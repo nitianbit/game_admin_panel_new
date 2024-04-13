@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Table } from '../../components';
 function Dashboard() {
     const [sidebarOpen, setSidebarOpen] = useState(true);
 
@@ -6,8 +7,8 @@ function Dashboard() {
         setSidebarOpen(!sidebarOpen);
     };
     return (
-        <div className='d-flex '>
-            \dashboard
+        <div className='d-flex w-100'>
+           <Table/>
         </div>
     )
 }
