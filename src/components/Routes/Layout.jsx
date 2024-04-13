@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import { Outlet, Navigate } from 'react-router-dom'
 import { AppContext } from '../../services/context/AppContext'
 import { Navbar, SideBar } from '..';
+import './style.css'
 
 const Layout = () => {
     const { isLoggedIn } = useContext(AppContext);
@@ -14,7 +15,9 @@ const Layout = () => {
             <SideBar />
             <div className="flex-1">
                 <Navbar />
+                <div className='bg-light p-3'>
                 <Outlet />
+                </div>
             </div>
         </div>
         : <Navigate to="/" />
