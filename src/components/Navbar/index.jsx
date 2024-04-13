@@ -1,29 +1,39 @@
 import React from 'react';
-import { Navbar, Button } from 'react-bootstrap';
+import { TfiMenuAlt } from "react-icons/tfi";
+import { FaUser } from "react-icons/fa";
 
 const CustomNavbar = ({ toggleSidebar }) => {
     return (
-        <div className="container p-2">
-            <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <svg className="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlinkHref="#bootstrap" /></svg>
-                </a>
-                <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" className="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="#" className="nav-link px-2 text-white">Features</a></li>
-                    <li><a href="#" className="nav-link px-2 text-white">Pricing</a></li>
-                    <li><a href="#" className="nav-link px-2 text-white">FAQs</a></li>
-                    <li><a href="#" className="nav-link px-2 text-white">About</a></li>
+        <nav class="navbar navbar-dark navbar-expand bg-white justify-content-between text-grey shadow-sm">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item text-center">
+                        <a href="#" class="nav-link" data-toggle="modal" data-target="#"><span class="fa fa-map"></span><span class="d-none d-sm-inline d-xl-block px-1 text-grey">Map</span></a>
+                    </li>
+                    <li class="nav-item dropdown text-center dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" id="dropdownUser1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <TfiMenuAlt className='text-grey' /><span class="d-none d-sm-inline px-1 text-grey">Dropdown</span> </a>
+                        <ul className="dropdown-menu dropdown-menu-dark text-small shadow text-grey" aria-labelledby="dropdownUser1">
+                            <li><a className="dropdown-item" href="#">New project...</a></li>
+                            <li><a className="dropdown-item" href="#">Settings</a></li>
+                            <li><a className="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <hr className="dropdown-divider" />
+                            </li>
+                            <li><a className="dropdown-item text-grey" href="#">Sign out</a></li>
+                        </ul>
+                    </li>
                 </ul>
-                <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                    <input type="search" className="form-control form-control-dark" placeholder="Search..." aria-label="Search" />
-                </form>
-                <div className="text-end">
-                    <button type="button" className="btn btn-outline-light me-2">Login</button>
-                    <button type="button" className="btn btn-warning">Sign-up</button>
-                </div>
+                <ul class="nav navbar-nav">
+                    <li class=" nav-item text-center" id="signup-btn">
+                        <a href="#" className="nav-link text-grey d-flex align-items-center" data-toggle="modal" data-target="#">
+                            <FaUser className='text-grey' />
+                            <span class="d-none d-sm-inline d-xl-block px-1 text-grey">Sign Up</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </div>
+        </nav>
     );
 }
 
