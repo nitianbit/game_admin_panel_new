@@ -68,7 +68,7 @@ function Sidebar() {
                 </li> */}
             </ul>
             <hr />
-            <div className="dropdown pb-4">
+            {/* <div className="dropdown pb-4">
                 <a href="#" className="d-flex align-items-center  text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" className="rounded-circle" />
                     <span className="d-none d-sm-inline mx-1 text-grey">loser</span>
@@ -82,7 +82,7 @@ function Sidebar() {
                     </li>
                     <li><a className="dropdown-item" href="#">Sign out</a></li>
                 </ul>
-            </div>
+            </div> */}
         </div>
     </div>
     );
