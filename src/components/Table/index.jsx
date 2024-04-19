@@ -1,17 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MdEdit, MdDelete } from "react-icons/md";
 
-const tableData = [
-    { id: 1, firstName: 'Mark', lastName: 'Otto', handle: '@mdo' },
-    { id: 2, firstName: 'Jacob', lastName: 'Thornton', handle: '@fat' },
-    { id: 3, firstName: 'Larry', lastName: 'Bird', handle: '@larry' },
-    { id: 4, firstName: 'Magic', lastName: 'Johnson', handle: '@magic' },
-    { id: 5, firstName: 'Michael', lastName: 'Jordan', handle: '@mj' },
-    { id: 6, firstName: 'LeBron', lastName: 'James', handle: '@kingjames' }
-];
+// const tableData = [
+//     { id: 1, firstName: 'Mark', lastName: 'Otto', handle: '@mdo' },
+//     { id: 2, firstName: 'Jacob', lastName: 'Thornton', handle: '@fat' },
+//     { id: 3, firstName: 'Larry', lastName: 'Bird', handle: '@larry' },
+//     { id: 4, firstName: 'Magic', lastName: 'Johnson', handle: '@magic' },
+//     { id: 5, firstName: 'Michael', lastName: 'Jordan', handle: '@mj' },
+//     { id: 6, firstName: 'LeBron', lastName: 'James', handle: '@kingjames' }
+// ];
 
-const EmployeeManagement = () => {
-  const [data, setData] = useState(tableData);
+const EmployeeManagement = ({tableData}) => {
+
+  const [data, setData] = useState(tableData?.rows);
+
+
+  useEffect(()=>{
+    console.log(data)
+  },[])
 
   return (
     <div className="container shadow-sm bg-white p-2">
@@ -20,19 +26,19 @@ const EmployeeManagement = () => {
           <thead style={{ fontWeight: 600 }}>
             <tr>
               <th className='font-weight-600' scope="col">#</th>
-              <th className='font-weight-600' scope="col">First</th>
-              <th className='font-weight-600' scope="col">Last</th>
-              <th className='font-weight-600' scope="col">Handle</th>
+              <th className='font-weight-600' scope="col">Name</th>
+              <th className='font-weight-600' scope="col">Phone</th>
+              <th className='font-weight-600' scope="col">Balance</th>
               <th className='font-weight-600' scope="col">Actions</th>
             </tr>
           </thead>
           <tbody className='text-grey'>
-            {data.map((row, index) => (
-              <tr key={row.id}>
+            {data?.map((row, index) => (
+              <tr key={row?.id}>
                 <th scope="row">{index + 1}</th>
-                <td>{row.firstName}</td>
-                <td>{row.lastName}</td>
-                <td>{row.handle}</td>
+                <td>{row.name}</td>
+                <td>{row.phone}</td>
+                <td>{row.balance}</td>
                 <td>
                   <MdEdit className='cursor-pointer' color='#8296EE'/>
                   <MdDelete className='cursor-pointer' color='red'/>
@@ -42,7 +48,7 @@ const EmployeeManagement = () => {
           </tbody>
         </table>
         <div className="d-flex justify-content-between align-items-center">
-          <div className="hint-text me-2 text-grey">Showing <b>{data.length}</b> out of <b>25</b> entries</div>
+          <div className="hint-text me-2 text-grey">Showing <b>{data?.length??0}</b> out of <b>{tableData?.total??0}</b> entries</div>
           <ul className="pagination mb-0">
             <li className="page-item">
               <a className="page-link" href="#" aria-label="Previous">
