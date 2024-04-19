@@ -1,17 +1,19 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/logo.png'
 import { doPOST } from '../../utils/HttpUtil';
-import { ENDPOINTS } from './LoginConstant';
+import { ENDPOINTS } from '../../services/api/constants';
 import { AppContext } from '../../services/context/AppContext';
 import { STORAGE_KEYS } from '../../services/Storage';
 
 function Login() {
     const navigate = useNavigate();
 
-    const { success, error, setIsLoggedIn } = useContext(AppContext)
+    const { success, error, setIsLoggedIn, setUserData} = useContext(AppContext)
 
     const [data, setData] = useState({})
+
+    const isLoggedIn = localStorage.getItem(STORAGE_KEYS.TOKEN)
 
     const login = async () => {
         if ((!data?.phone || !data?.password)) {
@@ -23,11 +25,19 @@ function Login() {
             localStorage.setItem(STORAGE_KEYS.TOKEN, response?.data?.token)
             localStorage.setItem('isLoggedIn', true)
             setIsLoggedIn(true)
-            return success("Login Successfull")
+            setUserData(response?.data?.user)
+            success("Login Successfull")
+            return
         } catch (error) {
 
         }
     }
+
+    useEffect(() => {
+        if (isLoggedIn) {
+            navigate('/dashboard')
+        }
+    }, [])
     return (
         <section className="bg-light py-3 py-md-5">
             <div className="container">
@@ -106,7 +116,6 @@ function Login() {
                                     </div>
                                     <div className="col-12">
                                         <p className="m-0 text-secondary text-center">Don't have an account? <span onClick={() => {
-                                            console.log("test")
                                             navigate("/signup")
                                         }} className="link-primary text-decoration-none cursor-pointer">Sign up</span></p>
                                     </div>

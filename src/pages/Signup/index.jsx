@@ -2,7 +2,7 @@ import React, { useContext, useNa, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/logo.png'
 import { AppContext } from '../../services/context/AppContext';
-import { ENDPOINTS } from './SignUpConstant';
+import { ENDPOINTS } from '../../services/api/constants';
 import { doPOST } from '../../utils/HttpUtil';
 
 const Signup = () => {
@@ -17,9 +17,10 @@ const Signup = () => {
             return error('Please Enter all required Fields');
         }
         try {
-            const response = await doPOST(ENDPOINTS.signUp, data)
+            const response = await doPOST(ENDPOINTS.register, data)
             navigate("/")
-            return success("Signup Successfull")
+            success("Signup Successfull")
+            return
         } catch (error) {
             console.log(error)
         }
