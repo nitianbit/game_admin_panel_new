@@ -9,5 +9,5 @@ export const API_METHODS = {
 export const ENDPOINTS = {
     login: '/auth/login',
     register: '/auth/signup',
-    profile: '/auth/profile',
+    profile: '/profile/get',
 }
