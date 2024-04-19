@@ -23,6 +23,7 @@ function Login() {
             localStorage.setItem(STORAGE_KEYS.TOKEN, response?.data?.token)
             localStorage.setItem('isLoggedIn', true)
             setIsLoggedIn(true)
+            return success("Login Successfull")
         } catch (error) {
 
         }

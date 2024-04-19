@@ -19,7 +19,7 @@ const Signup = () => {
         try {
             const response = await doPOST(ENDPOINTS.signUp, data)
             navigate("/")
-            return success(response?.message)
+            return success("Signup Successfull")
         } catch (error) {
             console.log(error)
         }
