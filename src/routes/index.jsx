@@ -1,4 +1,4 @@
-import { Login, Signup, Dashboard } from '../pages'
+import { Login, Signup, Dashboard, Users} from '../pages'
 
 export const authRoutes = [
     {
@@ -20,6 +20,9 @@ export const protectedRoutes = [
     {
         path: "/dashboard",
         element: <Dashboard />,
-
+    },
+    {
+        path: "/users",
+        element: <Users />
     }
 ]
