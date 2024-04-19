@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
 import { STORAGE_KEYS, getValue } from '../Storage';
+import { toast } from 'react-toastify';
 
 export const AppContext = createContext("");
 
@@ -7,9 +8,19 @@ export const AppProvider = ({ children }) => {
     const [userData, setUserData] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+    const success = (message) => {
+        return toast.success(message);
+    };
+
+    const error = (message) => {
+        return toast.error(message)
+    }
+
     useEffect(() => {
         const token = getValue(STORAGE_KEYS.TOKEN);
-        // setIsLoggedIn(true);
+        if(token){
+            setIsLoggedIn(true);
+        }
     }, [])
 
     return (
@@ -17,6 +28,8 @@ export const AppProvider = ({ children }) => {
             value={{
                 userData,
                 setUserData,
+                success,
+                error,
                 isLoggedIn, setIsLoggedIn
             }}
         >
