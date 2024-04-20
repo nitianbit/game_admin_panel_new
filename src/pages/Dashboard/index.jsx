@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Card, CardBody, CardFooter, CardHeader } from 'react-bootstrap';
-import { Table } from '../../components';
-import { ENDPOINTS } from './DashboardConstant';
 import './style.css'
 import { doGET } from '../../utils/HttpUtil';
 function Dashboard() {
 
     // const [currentContest, setCurrentContest] = useState()
-    
+
     // const getCurrentContest = async (e) => {
     //     try {
     //         const response = await doGET(ENDPOINTS.currentContest);
@@ -45,7 +43,7 @@ function Dashboard() {
                     </div>
                 </CardBody>
             </Card>
-           {/* <Table/> */}
+            {/* <Table/> */}
         </div>
     )
 }

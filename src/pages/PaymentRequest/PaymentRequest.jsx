@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { PaymentRequestTable } from '../../components'
-import { ENDPOINTS } from './UsersConstant';
 import { doGET } from '../../utils/HttpUtil';
 
 const PaymentRequest = () => {
@@ -20,7 +19,7 @@ const PaymentRequest = () => {
     return (
         <div className='d-flex w-100'>
 
-            <PaymentRequestTable tableData={users} />
+            <PaymentRequestTable tableData={paymentRequest} />
         </div>
     )
 }
