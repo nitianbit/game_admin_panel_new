@@ -1,27 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import { Card, CardBody, CardFooter, CardHeader } from 'react-bootstrap';
-import { Table } from '../../components'
+import { UserTable } from '../../components'
 import { ENDPOINTS } from './UsersConstant';
 import { doGET } from '../../utils/HttpUtil';
 
-const Users =()=> {
+const Users = () => {
 
-  const [users, setUsers] = useState()
-    
-  const getAllUsers = async (e) => {
-      try {
-          const response = await doGET(ENDPOINTS.allUsers);
-          setUsers(response?.data)
-      } catch (error) { }
-  };
+    const [users, setUsers] = useState()
 
-  useEffect(()=>{
-      getAllUsers()
-  },[])
+    const getAllUsers = async (e) => {
+        try {
+            const response = await doGET(ENDPOINTS.allUsers);
+            setUsers(response?.data)
+        } catch (error) { }
+    };
+
+    useEffect(() => {
+        getAllUsers()
+    }, [])
     return (
         <div className='d-flex w-100'>
 
-        <Table tableData={users}/>
+            <UserTable tableData={users} />
         </div>
     )
 }
