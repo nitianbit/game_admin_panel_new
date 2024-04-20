@@ -1,6 +1,7 @@
 import React from 'react';
 import { MdDashboard } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
+import { FaMoneyBillTransfer } from "react-icons/fa6";
 import './style.css'
 import { Link } from 'react-router-dom';
 
@@ -13,10 +14,13 @@ function Sidebar() {
                 </Link>
                 <ul className="px-3 nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <Link to="/users" className="nav-link align-middle px-0">
-                    <FaUser className='text-grey' /><i className="fs-4 bi-house"></i> <span className="ms-1 d-none d-sm-inline text-grey">Users</span>
+                        <FaUser className='text-grey' /><i className="fs-4 bi-house"></i> <span className="ms-1 d-none d-sm-inline text-grey">Users</span>
                     </Link>
                     <Link to="/dashboard" className="nav-link px-0 align-middle  text-grey">
                         <MdDashboard className='text-grey' /> <span className="ms-1 d-none d-sm-inline text-grey">Dashboard</span> </Link>
+
+                    <Link to="/paymentRequest" className="nav-link px-0 align-middle  text-grey">
+                        <FaMoneyBillTransfer className='text-grey' /> <span className="ms-1 d-none d-sm-inline text-grey">Payment Request</span> </Link>
                 </ul>
                 <hr />
             </div>
