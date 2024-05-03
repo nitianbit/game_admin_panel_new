@@ -2,7 +2,7 @@
 export const API_METHODS = {
     GET: 'GET',
     POST: 'POST',
-    DELETE: 'DELTE',
+    DELETE: 'DELETE',
     PUT: 'PUT'
 }
 
