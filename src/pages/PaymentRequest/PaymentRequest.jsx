@@ -1,25 +1,26 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { PaymentRequestTable } from '../../components'
 import { doGET } from '../../utils/HttpUtil';
+import { ENDPOINTS } from './PaymentRequestConstant';
 
 const PaymentRequest = () => {
 
     const [paymentRequest, setPaymentRequest] = useState([])
 
-    // const getAllUsers = async (e) => {
-    //     try {
-    //         const response = await doGET(ENDPOINTS.allUsers);
-    //         setUsers(response?.data)
-    //     } catch (error) { }
-    // };
+    const getAllPayouts = async () => {
+        try {
+            const response = await doGET(ENDPOINTS.allPayouts);
+            setPaymentRequest(response?.data)
+        } catch (error) { }
+    };
 
-    // useEffect(() => {
-    //     getAllUsers()
-    // }, [])
+    useEffect(() => {
+        getAllPayouts()
+    }, [])
     return (
         <div className='d-flex w-100'>
 
-            <PaymentRequestTable tableData={paymentRequest} />
+            <PaymentRequestTable tableData={paymentRequest} getAllPayouts={getAllPayouts} />
         </div>
     )
 }
