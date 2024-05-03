@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Card, CardBody, CardFooter, CardHeader } from 'react-bootstrap';
 import { UserTable } from '../../components'
 import { ENDPOINTS } from './UsersConstant';
 import { doGET } from '../../utils/HttpUtil';
@@ -18,10 +17,10 @@ const Users = () => {
     useEffect(() => {
         getAllUsers()
     }, [])
+
     return (
         <div className='d-flex w-100'>
-
-            <UserTable tableData={users} />
+            <UserTable getAllUsers={getAllUsers} tableData={users} />
         </div>
     )
 }
