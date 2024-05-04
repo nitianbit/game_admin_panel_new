@@ -20,9 +20,9 @@ const Timer = ({ startTime }) => {
     }
 
     return (
-        <div className='d-flex'>
+        <div className='d-flex align-items-center'>
             <div className='mr-2'>Timer - &nbsp; </div>
-            <p> 00:{seconds < 10 ? `0${seconds}` : seconds}</p>
+            <div> 00:{seconds < 10 ? `0${seconds}` : seconds}</div>
         </div>
     );
 };
