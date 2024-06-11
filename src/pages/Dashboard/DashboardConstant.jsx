@@ -1,7 +1,7 @@
 export const ENDPOINTS = {
     currentContest: "/contest/current",
     modifyCurrentContest: `/contest/modify-bet`,
-    getAllContest: (page, records) => `/contest/grid?page=${page}&records=${records}`
+    getAllContest: (page, records, filter = "") => `/contest/grid?page=${page}&records=${records}${filter}`
 }
 
 

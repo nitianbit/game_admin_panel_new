@@ -33,6 +33,7 @@ export const doPOST = async function (url, data) {
     // const response = await tokenUtil?.callAPI(reqBody);
     const response = await apiHandler(url, API_METHODS.POST, data)
     // if (response?.status === 200) {
+    console.log(response)
     return response;
     // } 
     throw new Error(response?.data);

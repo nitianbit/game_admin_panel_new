@@ -6,9 +6,7 @@ import { AppContext } from '../../services/context/AppContext';
 
 const DashboardBasicInfo = () => {
     const [prevContest, setPrevContest] = useState(null)
-
     const { success, error } = useContext(AppContext)
-
     const [loading, setLoading] = useState(false)
     const [editState, setEditState] = useState({
         isModalOpen: false,
@@ -19,8 +17,10 @@ const DashboardBasicInfo = () => {
 
     const getPrevContest = async (e) => {
         try {
-            const response = await doGET(ENDPOINTS.getAllContest(2, 1));
-            setPrevContest(response?.data)
+            const response = await doGET(ENDPOINTS.getAllContest(1, 1, '&status=2'));
+            if (response.data?.rows?.length) {
+                setPrevContest(response?.data?.rows[0]);
+            }
         } catch (error) { }
     };
 
@@ -49,12 +49,13 @@ const DashboardBasicInfo = () => {
             <Card>
                 <CardHeader>
                     <div className='d-flex justify-content-between align-items-center'>
-                        <div>Basic Info</div>
+                        <div>Last Contest Stats</div>
                     </div>
                 </CardHeader>
                 <CardBody>
                     <div>
-                        <div>Last Contest Stats</div>
+                        <div>Winning Amount: {prevContest?.winningAmount}</div>
+                        <div>Winning Number: {prevContest?.winningNumber}</div>
                     </div>
                 </CardBody>
             </Card>

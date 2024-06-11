@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
 const Timer = ({ startTime }) => {
-    const [currentTime, setCurrentTime] = useState(Date.now());
+    const [currentTime, setCurrentTime] = useState(Math.floor(Date.now() / 1000));
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentTime(Date.now());
+            setCurrentTime(Math.floor(Date.now() / 1000));
         }, 1000);
 
         return () => clearInterval(interval);
     }, []);
 
-    const timeDifference = Math.floor((currentTime - startTime) / 1000);
-    let seconds = 59 - (timeDifference % 60);
-
+    let seconds = startTime + 60 - currentTime;
     // Reset the timer if it reaches 0
     if (seconds < 0) {
         seconds = 59;

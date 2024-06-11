@@ -7,12 +7,11 @@ import { MdEdit } from 'react-icons/md';
 import Modal from '../../components/Modal/Modal';
 import EditContestWinner from '../../components/Modal/EditContestWinner';
 import { AppContext } from '../../services/context/AppContext';
+import useInterval from '../../hooks/useInterval';
 
 const CurrentContest = () => {
     const [currentContest, setCurrentContest] = useState(null)
-
     const { success, error } = useContext(AppContext)
-
     const [loading, setLoading] = useState(false)
     const [editState, setEditState] = useState({
         isModalOpen: false,
@@ -66,10 +65,12 @@ const CurrentContest = () => {
 
         }
     }
+    useInterval(getCurrentContest, 5000)
 
     useEffect(() => {
         getCurrentContest()
-    }, [])
+    }, []);
+
     return (
         <>
             <Card>
@@ -86,10 +87,7 @@ const CurrentContest = () => {
                 </CardHeader>
                 <CardBody>
                     <div>
-                        <div>
-                            Bets
-                        </div>
-
+                        Bets
                         <div className='d-flex'>
                             <div className='dot'>1</div>
                             <div className='dot'>2</div>
@@ -105,10 +103,7 @@ const CurrentContest = () => {
                     </div>
 
                     <div>
-                        <div>
-                            No of Bets
-                        </div>
-
+                        No of Bets
                         <div className='d-flex w-100'>
                             {currentContest?.betSummary ?
                                 Object.keys(currentContest?.betSummary)?.map((key) => (
@@ -118,21 +113,17 @@ const CurrentContest = () => {
                             }
                         </div>
                     </div>
+
                     <div>
-                        <div>
-                            Amount
-                        </div>
-
+                        Amount
                         <div className='d-flex'>
-                            <div className='d-flex'>
-                                {currentContest?.betSummary ?
-                                    Object.keys(currentContest?.betSummary)?.map((key) => (
-                                        <div key={key} className='dot'>{currentContest?.betSummary?.[key]?.totalAmount}</div>
-                                    ))
-                                    : null
-                                }
+                            {currentContest?.betSummary ?
+                                Object.keys(currentContest?.betSummary)?.map((key) => (
+                                    <div key={key} className='dot'>{currentContest?.betSummary?.[key]?.totalAmount}</div>
+                                ))
+                                : null
+                            }
 
-                            </div>
                         </div>
                     </div>
 
