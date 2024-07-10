@@ -3,7 +3,8 @@ import { STORAGE_KEYS, getValue } from '../Storage';
 import { API_METHODS } from './constants';
 
 const api = axios.create({
-    baseURL: 'http://localhost:4000/api',
+    // baseURL: 'http://localhost:4000/api',
+    baseURL: "http://3.6.103.255:4000/api",
     timeout: 10000,
 });
 
