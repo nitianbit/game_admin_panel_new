@@ -4,7 +4,7 @@ import { doGET, doPUT } from '../../utils/HttpUtil';
 import { ENDPOINTS } from './DashboardConstant';
 import { AppContext } from '../../services/context/AppContext';
 
-const DashboardBasicInfo = () => {
+const DashboardBasicInfo = ({ setCurrentContest, currentContest }) => {
     const [prevContest, setPrevContest] = useState(null)
     const { success, error } = useContext(AppContext)
     const [loading, setLoading] = useState(false)
@@ -24,26 +24,14 @@ const DashboardBasicInfo = () => {
         } catch (error) { }
     };
 
-    const modifyCurrentContestWinner = async () => {
-        try {
-            setLoading(true)
-            await doPUT(ENDPOINTS.modifyCurrentContest, editState?.currentWinner)
-            setEditState({
-                isModalOpen: false,
-                currentWinner: null
-            })
-            success("Winner Updated Successfully")
-        } catch (e) {
-            error("Server error")
-        } finally {
-            setLoading(false)
-
-        }
-    }
-
     useEffect(() => {
         getPrevContest()
-    }, [])
+    }, [currentContest?.contest?._id])
+
+
+
+
+
     return (
         <>
             <Card>

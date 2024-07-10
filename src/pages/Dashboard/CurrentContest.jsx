@@ -9,8 +9,8 @@ import EditContestWinner from '../../components/Modal/EditContestWinner';
 import { AppContext } from '../../services/context/AppContext';
 import useInterval from '../../hooks/useInterval';
 
-const CurrentContest = () => {
-    const [currentContest, setCurrentContest] = useState(null)
+const CurrentContest = ({ setCurrentContest, currentContest }) => {
+
     const { success, error } = useContext(AppContext)
     const [loading, setLoading] = useState(false)
     const [editState, setEditState] = useState({
@@ -89,6 +89,7 @@ const CurrentContest = () => {
                     <div>
                         Bets
                         <div className='d-flex'>
+                            <div className='dot'>0</div>
                             <div className='dot'>1</div>
                             <div className='dot'>2</div>
                             <div className='dot'>3</div>
@@ -98,7 +99,6 @@ const CurrentContest = () => {
                             <div className='dot'>7</div>
                             <div className='dot'>8</div>
                             <div className='dot'>9</div>
-                            <div className='dot'>10</div>
                         </div>
                     </div>
 
