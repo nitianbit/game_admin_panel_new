@@ -113,7 +113,7 @@ const PaymentRequestTable = ({ tableData, getAllPayouts }) => {
                                     <td>{row.amount}</td>
                                     <td>{row.status ? "Completed" : "Initiated"}</td>
                                     <td>
-                                        {row?.userId?.details?.UPI_ID ?? "--"}
+                                        {row?.userId?.UPI_ID ?? "--"}
                                     </td>
                                     <td>
                                         {!row.status && <MdEdit onClick={() => {
