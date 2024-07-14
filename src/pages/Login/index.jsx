@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from '../../assets/images/logo.png'
+import logo from '../../assets/images/logo.jpg'
 import { doPOST } from '../../utils/HttpUtil';
 import { ENDPOINTS } from '../../services/api/constants';
 import { AppContext } from '../../services/context/AppContext';
