@@ -4,6 +4,7 @@ import logo from '../../assets/images/logo.png'
 import { AppContext } from '../../services/context/AppContext';
 import { ENDPOINTS } from '../../services/api/constants';
 import { doPOST } from '../../utils/HttpUtil';
+import { navigateTo } from '../../routes';
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -18,7 +19,8 @@ const Signup = () => {
         }
         try {
             const response = await doPOST(ENDPOINTS.register, data)
-            navigate("/")
+            navigateTo(navigate, "/")
+            // navigate("/")
             success("Signup Successfull")
             return
         } catch (error) {
@@ -110,7 +112,10 @@ const Signup = () => {
                                             </div>
                                         </div>
                                         <div className="col-12">
-                                            <p className="m-0 text-secondary text-center">Already have an account? <a onClick={() => navigate("/")} className="link-primary text-decoration-none cursor-pointer">Sign in</a></p>
+                                            <p className="m-0 text-secondary text-center">Already have an account? <a onClick={() =>
+                                                navigateTo(navigate, "/")
+                                                // navigate("/")
+                                            } className="link-primary text-decoration-none cursor-pointer">Sign in</a></p>
                                         </div>
                                     </div>
                                 </form>

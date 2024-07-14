@@ -5,11 +5,12 @@ import { doPOST } from '../../utils/HttpUtil';
 import { ENDPOINTS } from '../../services/api/constants';
 import { AppContext } from '../../services/context/AppContext';
 import { STORAGE_KEYS } from '../../services/Storage';
+import { navigateTo } from '../../routes';
 
 function Login() {
     const navigate = useNavigate();
 
-    const { success, error, setIsLoggedIn, setUserData} = useContext(AppContext)
+    const { success, error, setIsLoggedIn, setUserData } = useContext(AppContext)
 
     const [data, setData] = useState({})
 
@@ -21,7 +22,8 @@ function Login() {
         }
         try {
             const response = await doPOST(ENDPOINTS.login, data)
-            navigate('/dashboard')
+            navigateTo(navigate, "/dashboard")
+            // navigate('/dashboard')
             localStorage.setItem(STORAGE_KEYS.TOKEN, response?.data?.token)
             localStorage.setItem('isLoggedIn', true)
             setIsLoggedIn(true)
@@ -35,7 +37,8 @@ function Login() {
 
     useEffect(() => {
         if (isLoggedIn) {
-            navigate('/dashboard')
+            navigateTo(navigate, "/dashboard")
+            // navigate('/dashboard')
         }
     }, [])
     return (
@@ -95,7 +98,7 @@ function Login() {
                                             <label htmlFor="password" className="form-label">Password</label>
                                         </div>
                                     </div>
-                                    <div className="col-12">
+                                    {/* <div className="col-12">
                                         <div className="d-flex gap-2 justify-content-between">
                                             <div className="form-check">
                                                 <input className="form-check-input" type="checkbox" value="" name="rememberMe" id="rememberMe" />
@@ -105,7 +108,7 @@ function Login() {
                                             </div>
                                             <a href="#!" className="link-primary text-decoration-none">Forgot password?</a>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="col-12">
                                         <div className="d-grid my-3">
                                             <button onClick={(e) => {
@@ -114,11 +117,12 @@ function Login() {
                                             }} className="btn btn-primary btn-lg" type="submit">Log in</button>
                                         </div>
                                     </div>
-                                    <div className="col-12">
+                                    {/* <div className="col-12">
                                         <p className="m-0 text-secondary text-center">Don't have an account? <span onClick={() => {
-                                            navigate("/signup")
+                                            navigateTo(navigate, "/signup")
+                                            // navigate("/signup")
                                         }} className="link-primary text-decoration-none cursor-pointer">Sign up</span></p>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

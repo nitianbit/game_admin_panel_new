@@ -1,13 +1,15 @@
 import { Login, Signup, Dashboard, Users, PaymentRequest } from '../pages'
 
+export const navigateTo = (navigate, path) => navigate(`/admin${path}`)
+
 export const authRoutes = [
     {
-        path: "/",
+        path: "/admin",
         element: <Login />,
 
     },
     {
-        path: "/signup",
+        path: "/admin/signup",
         element: <Signup />,
 
     },
@@ -18,15 +20,15 @@ export const openRoutes = [];
 
 export const protectedRoutes = [
     {
-        path: "/dashboard",
+        path: "/admin/dashboard",
         element: <Dashboard />,
     },
     {
-        path: "/users",
+        path: "/admin/users",
         element: <Users />
     },
     {
-        path: "/paymentRequest",
+        path: "/admin/paymentRequest",
         element: <PaymentRequest />
     }
 ]

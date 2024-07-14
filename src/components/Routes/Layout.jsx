@@ -15,11 +15,11 @@ const Layout = () => {
             <div className="flex-1">
                 <Navbar />
                 <div className='bg-light p-3'>
-                <Outlet />
+                    <Outlet />
                 </div>
             </div>
         </div>
-        : <Navigate to="/" />
+        : <Navigate to="/admin" />
 
 }
 
