@@ -16,6 +16,9 @@ function Sidebar() {
                     <Link to="/admin/users" className="nav-link align-middle px-0">
                         <FaUser className='text-grey' /><i className="fs-4 bi-house"></i> <span className="ms-1 d-none d-sm-inline text-grey">Users</span>
                     </Link>
+                    <Link to="/admin/addUsers" className="nav-link align-middle px-0">
+                        <FaUser className='text-grey' /><i className="fs-4 bi-house"></i> <span className="ms-1 d-none d-sm-inline text-grey">Add users</span>
+                    </Link>
                     <Link to="/admin/dashboard" className="nav-link px-0 align-middle  text-grey">
                         <MdDashboard className='text-grey' /> <span className="ms-1 d-none d-sm-inline text-grey">Dashboard</span> </Link>
 

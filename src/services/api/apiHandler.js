@@ -3,8 +3,8 @@ import { STORAGE_KEYS, getValue } from '../Storage';
 import { API_METHODS } from './constants';
 
 const api = axios.create({
-    // baseURL: 'http://localhost:4000/api',
-    baseURL: "https://sagargold.shop/api",
+     baseURL: 'http://93.127.135.202:4000/api',
+    // baseURL: "https://sagargold.shop/api",
     timeout: 10000,
 });
 

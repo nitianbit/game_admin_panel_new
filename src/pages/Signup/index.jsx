@@ -94,28 +94,14 @@ const Signup = () => {
                                             </div>
                                         </div>
                                         <div className="col-12">
-                                            <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" name="iAgree" id="iAgree" required />
-                                                <label className="form-check-label text-secondary" htmlFor="iAgree">
-                                                    I agree to the <a href="#!" className="link-primary text-decoration-none">terms and conditions</a>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div className="col-12">
                                             <div className="d-grid my-3">
                                                 <button
                                                     onClick={(e) => {
                                                         e.preventDefault();
                                                         signUp();
                                                     }}
-                                                    className="btn btn-primary btn-lg" type="submit">Sign up</button>
+                                                    className="btn btn-primary btn-lg" type="submit">Add User</button>
                                             </div>
-                                        </div>
-                                        <div className="col-12">
-                                            <p className="m-0 text-secondary text-center">Already have an account? <a onClick={() =>
-                                                navigateTo(navigate, "/")
-                                                // navigate("/")
-                                            } className="link-primary text-decoration-none cursor-pointer">Sign in</a></p>
                                         </div>
                                     </div>
                                 </form>

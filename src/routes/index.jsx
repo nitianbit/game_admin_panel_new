@@ -8,11 +8,7 @@ export const authRoutes = [
         element: <Login />,
 
     },
-    {
-        path: "/admin/signup",
-        element: <Signup />,
-
-    },
+    
 ]
 
 export const openRoutes = [];
@@ -30,5 +26,11 @@ export const protectedRoutes = [
     {
         path: "/admin/paymentRequest",
         element: <PaymentRequest />
-    }
+    },
+    {
+        path: "/admin/addUsers",
+        element: <Signup />,
+
+    },
+
 ]
